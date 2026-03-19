@@ -18,7 +18,6 @@
     <div class="three-hero-bg" id="three-hero-bg" aria-hidden="true"></div>
     <div class="page-shell">
       <header class="site-header">
-        <p class="drag-tip">DRAG ANYWHERE</p>
         <button class="menu-button" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="切换导航">
           <span></span>
           <span></span>
@@ -26,6 +25,7 @@
         </button>
         <nav class="site-nav" id="site-nav">
           <a href="#about">About</a>
+          <a href="#quote">Quote</a>
           <a href="#projects">Projects</a>
           <a href="#experience">Job Experience</a>
           <a href="#contact">Contact</a>
@@ -68,12 +68,12 @@
           <div class="section-label">ABOUT {</div>
           <p class="section-intro" data-reveal>一个适合做 AI 产品、AI 内容与增长协同岗位的复合型候选人。</p>
           <div class="about-layout" data-reveal>
-            <article class="info-card">
-              <h2>基础信息</h2>
+            <article class="info-card info-card-primary">
+              <h2>基础信息与教育背景</h2>
               <dl class="info-list">
                 <div>
                   <dt>所在地</dt>
-                  <dd>武汉</dd>
+                  <dd>浙江杭州</dd>
                 </div>
                 <div>
                   <dt>求职方向</dt>
@@ -81,7 +81,10 @@
                 </div>
                 <div>
                   <dt>教育背景</dt>
-                  <dd>华中科技大学 硕士 / 中国地质大学（武汉）双学位本科</dd>
+                  <dd>985 华中科技大学 外国语言学及应用语言学（硕士）</dd>
+                  <dd>2022.09 - 2025.06</dd>
+                  <dd>211 中国地质大学（武汉） 英语 + 工商管理双学位（本科）</dd>
+                  <dd>2018.09 - 2022.06</dd>
                 </div>
                 <div>
                   <dt>综合排名</dt>
@@ -94,15 +97,37 @@
               </dl>
             </article>
 
-            <article class="info-card">
-              <h2>教育与标签</h2>
-              <div class="degree-block">
-                <p><strong>华中科技大学</strong> 外国语言学及应用语言学（硕士）</p>
-                <p>2022.09 - 2025.06</p>
-              </div>
-              <div class="degree-block">
-                <p><strong>中国地质大学（武汉）</strong> 英语 + 工商管理双学位（本科）</p>
-                <p>2018.09 - 2022.06</p>
+            <article class="info-card info-card-secondary">
+              <h2>奖项 / 课程 / 学生工作</h2>
+              <div class="about-matrix">
+                <section class="about-block">
+                  <h3>奖项荣誉</h3>
+                  <ul class="about-bullet-list">
+                    <li>华中科技大学优秀毕业生（Top 5%）</li>
+                    <li>优秀研究生干部（Top 5%）</li>
+                    <li>知行一等奖学金（Top 5%）</li>
+                    <li>挑战杯全国一等奖 / 志愿服务项目大赛国二等奖</li>
+                  </ul>
+                </section>
+                <section class="about-block">
+                  <h3>核心课程</h3>
+                  <ul class="about-bullet-list about-bullet-list-compact">
+                    <li>应用统计 95</li>
+                    <li>市场营销 95</li>
+                    <li>电子商务 93</li>
+                    <li>管理学 93</li>
+                    <li>微积分 90</li>
+                  </ul>
+                </section>
+                <section class="about-block about-block-full">
+                  <h3>学生工作</h3>
+                  <ul class="about-bullet-list">
+                    <li>华中科技大学外国语学院研究生会主席</li>
+                    <li>华中科技大学校研究生会实践部部员</li>
+                    <li>华中科技大学第六期研究生青马班学习组组长</li>
+                    <li>中国地质大学（武汉）校级志愿服务社团社长 / 双学位实验班班长</li>
+                  </ul>
+                </section>
               </div>
               <div class="tag-cloud-static">
                 <span>AI转型</span>
@@ -113,17 +138,20 @@
                 <span>人文理解力</span>
               </div>
             </article>
-
-            <article class="info-card info-card-wide">
-              <h2>奖项与课程</h2>
-              <p>
-                华中科技大学优秀毕业生（top5%） / 优秀研究生干部（top5%） /
-                知行一等奖学金（top5%）
-              </p>
-              <p>核心课程：应用统计（95）/ 市场营销（95）/ 电子商务（93）/ 管理学（93）/ 微积分（90）</p>
-            </article>
           </div>
           <div class="section-close">}</div>
+        </section>
+
+        <section class="panel quote-panel" id="quote">
+          <div class="quote-stage" data-reveal>
+            <span class="quote-mark quote-mark-open">“</span>
+            <div class="quote-lines" aria-label="TALK IS CHEAP. SHOW ME THE CODE.">
+              <p class="quote-line" data-quote-text="TALK IS CHEAP." data-quote-strong="5-6"></p>
+              <p class="quote-line" data-quote-text="SHOW ME THE CODE." data-quote-strong="5-6,8-10"></p>
+            </div>
+            <span class="quote-mark quote-mark-close">”</span>
+            <p class="quote-credit" data-reveal>- Linus Torvalds</p>
+          </div>
         </section>
 
         <section class="panel projects-panel" id="projects">
@@ -138,6 +166,9 @@
                 <p><strong>定位：</strong>面向女性与性少数群体的沉浸式 AI 语音陪伴空间，强调自然表达、长文本记忆与情绪体验。</p>
                 <p><strong>角色：</strong>Product Lead & 前端开发，独立完成需求定义、场景逻辑设计与 UI 落地，并推动接入 Qwen3-TTS-Flash 实现流式语音交互。</p>
                 <p><strong>结果：</strong>作品获得阿里云极客创造者 48 小时黑客松季军（铜奖），也成为我进入 AI 产品语境的重要起点。</p>
+                <div class="project-actions">
+                  <a class="project-link" href="https://github.com/ceci317/muse" target="_blank" rel="noreferrer">Open Project</a>
+                </div>
               </article>
 
               <article class="project-text" data-project="visual-clone">
@@ -147,6 +178,9 @@
                 <p><strong>定位：</strong>把繁琐排版流程压缩成“一键生成高颜值图文卡片”的创作者工具。</p>
                 <p><strong>角色：</strong>Solo Full-Stack Developer，基于 React/Next.js、Tailwind CSS 与 html2canvas 完成界面与批量导出，并接入 Gemini API 支持爆款改写。</p>
                 <p><strong>结果：</strong>打通“灵感 - 改写 - 排版 - 导出”完整链路，让单篇图文制作效率显著提升。</p>
+                <div class="project-actions">
+                  <a class="project-link" href="https://rednote-pearl.vercel.app/" target="_blank" rel="noreferrer">Open Project</a>
+                </div>
               </article>
 
               <article class="project-text" data-project="content-brain">
@@ -156,6 +190,9 @@
                 <p><strong>定位：</strong>围绕爆款逻辑、结构化拆解和自动化工作流，打造的自媒体成文系统。</p>
                 <p><strong>角色：</strong>AI Workflow 架构师 & 前端开发，提炼可复制的 Prompt 框架，并把复杂逻辑封装成更傻瓜式的双栏交互工具。</p>
                 <p><strong>结果：</strong>为矩阵账号提供稳定选题与成文支持，帮助完成 3600+ 粉丝、1.5w+ 赞藏的冷启动突破。</p>
+                <div class="project-actions">
+                  <a class="project-link" href="https://rednote-text-helper.vercel.app/" target="_blank" rel="noreferrer">Open Project</a>
+                </div>
               </article>
 
               <article class="project-text" data-project="eaatwhat">
@@ -165,6 +202,9 @@
                 <p><strong>定位：</strong>面向真实社交场景的约饭产品，让“和谁吃、吃什么、去哪吃”这类分散决策收束为一个完整流程。</p>
                 <p><strong>角色：</strong>团队协作中的产品策划 / 体验设计 / 前端支持，参与发起约饭、邀请码加入与 AI 推荐模块的串联。</p>
                 <p><strong>结果：</strong>把高频但零散的社交决策场景整理成更顺滑的移动端体验，目前处于内测推进阶段。</p>
+                <div class="project-actions">
+                  <a class="project-link" href="https://github.com/catynaimiao/Roadmeet" target="_blank" rel="noreferrer">Open Project</a>
+                </div>
               </article>
 
               <article class="project-text" data-project="time-workflow">
@@ -174,6 +214,9 @@
                 <p><strong>定位：</strong>围绕时间管理、任务拆解与复盘搭建的轻量系统，让执行和复盘真正落到每天的行为里。</p>
                 <p><strong>角色：</strong>AI Workflow 设计者 / 内容转化者，把个人方法论封装成可展示、可传播、可复用的系统。</p>
                 <p><strong>结果：</strong>把抽象经验转化为更具操作感的 AI 内容资产，也成为我转 AI 过程中的代表性方法论项目。</p>
+                <div class="project-actions">
+                  <a class="project-link" href="https://www.xiaohongshu.com/discovery/item/69ad2556000000000e00d363?source=webshare&xhsshare=pc_web&xsec_token=ABbvVTdq8_FiBLYhxv1vE1Vv3zOF90wKn0RittKCjAapA=&xsec_source=pc_share" target="_blank" rel="noreferrer">Open Project</a>
+                </div>
               </article>
 
               <article class="project-text" data-project="ceci-account">
@@ -183,6 +226,9 @@
                 <p><strong>定位：</strong>聚焦 AI 入门经验、转行记录与陪伴式表达，让复杂工具更容易被普通用户理解。</p>
                 <p><strong>角色：</strong>个人 IP 主理人 / 内容生产者 / 选题与增长实验者。</p>
                 <p><strong>结果：</strong>账号积累 705 粉丝与 8869 获赞收藏，逐步形成“转 AI 陪伴型创作者”的清晰认知。</p>
+                <div class="project-actions">
+                  <a class="project-link" href="https://www.xiaohongshu.com/user/profile/5db38bb500000000010081aa" target="_blank" rel="noreferrer">Open Project</a>
+                </div>
               </article>
 
               <article class="project-text" data-project="bubu-account">
@@ -192,6 +238,9 @@
                 <p><strong>定位：</strong>通过更密集的选题测试与内容迭代，验证 AI 内容在平台上的传播反馈。</p>
                 <p><strong>角色：</strong>账号主理人 / 内容策略制定者 / 冷启动操盘者。</p>
                 <p><strong>结果：</strong>账号实现 3950 粉丝与 2.1 万获赞收藏，证明我具备从内容到增长的完整闭环能力。</p>
+                <div class="project-actions">
+                  <a class="project-link" href="https://xhslink.com/m/12OdVVkTDhW" target="_blank" rel="noreferrer">Open Project</a>
+                </div>
               </article>
             </div>
 
@@ -203,52 +252,29 @@
                   <span></span>
                 </div>
                 <div class="screen-stage">
-                  <video class="project-video is-visible" data-video="muse" src="assets/muse-demo.mp4" autoplay muted loop playsinline></video>
-                  <video class="project-video" data-video="visual-clone" src="assets/visual-clone-pro.mp4" muted loop playsinline></video>
-                  <video class="project-video" data-video="content-brain" src="assets/content-brain.mp4" muted loop playsinline></video>
-                  <div class="project-video placeholder-video" data-video="eaatwhat">
-                    <div class="showcase-board eatwhat-board">
-                      <div class="phone-shot phone-home phone-slideshow">
-                        <img class="slide is-visible" src="assets/eatwhat/微信图片_2026-03-17_164705_454.png" alt="EatWhat 欢迎页" />
-                        <img class="slide" src="assets/eatwhat/微信图片_2026-03-17_164722_509.png" alt="EatWhat 首页" />
-                        <img class="slide" src="assets/eatwhat/微信图片_2026-03-17_164726_119.png" alt="EatWhat 创建约饭" />
-                      </div>
-                      <div class="phone-shot phone-form phone-slideshow">
-                        <img class="slide is-visible" src="assets/eatwhat/微信图片_2026-03-17_164730_109.png" alt="EatWhat 邀请已创建" />
-                        <img class="slide" src="assets/eatwhat/微信图片_2026-03-17_164737_265.png" alt="EatWhat 输入邀请码" />
-                        <img class="slide" src="assets/eatwhat/微信图片_2026-03-17_164740_416.png" alt="EatWhat 接受邀请" />
-                      </div>
-                      <div class="phone-shot phone-map phone-slideshow">
-                        <img class="slide is-visible" src="assets/eatwhat/微信图片_2026-03-17_164743_041.png" alt="EatWhat AI 推荐地图" />
-                        <img class="slide" src="assets/eatwhat/微信图片_2026-03-17_164750_900.png" alt="EatWhat 推荐列表" />
-                        <img class="slide" src="assets/eatwhat/微信图片_2026-03-17_164753_854.png" alt="EatWhat 推荐备选" />
-                        <img class="slide" src="assets/eatwhat/微信图片_2026-03-17_164756_796.png" alt="EatWhat 推荐详情" />
-                        <div class="slideshow-caption">
-                          <p class="shot-title">EATWHAT Demo Flow</p>
-                          <p>发起约饭、邀请码加入、双方信息匹配、AI 推荐地点，一条路径连成完整体验。</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <video class="project-video" data-video="time-workflow" src="assets/time-workflow.mp4" muted loop playsinline></video>
-                  <div class="project-video placeholder-video" data-video="ceci-account">
-                    <div class="showcase-board account-board">
-                      <div class="account-card account-card-image">
-                        <img src="assets/ceci-account-post.png" alt="Ceci（AI版）代表性帖子" />
-                        <div class="account-overlay">
-                          <strong>Ceci（AI版）</strong>
-                          <p>把转 AI 过程变成可被看见、可被共鸣的内容叙事。</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="project-video placeholder-video" data-video="bubu-account">
+                  <video class="project-video is-visible" data-video="muse" data-link="https://github.com/ceci317/muse" src="assets/muse-demo.mp4" autoplay muted loop playsinline></video>
+                  <video class="project-video" data-video="visual-clone" data-link="https://rednote-pearl.vercel.app/" src="assets/visual-clone-pro.mp4" muted loop playsinline></video>
+                  <video class="project-video" data-video="content-brain" data-link="https://rednote-text-helper.vercel.app/" src="assets/content-brain.mp4" muted loop playsinline></video>
+                  <video class="project-video" data-video="eaatwhat" data-link="https://github.com/catynaimiao/Roadmeet" src="assets/eatwhat-demo.mp4" muted loop playsinline></video>
+                  <video class="project-video" data-video="time-workflow" data-link="https://www.xiaohongshu.com/discovery/item/69ad2556000000000e00d363?source=webshare&xhsshare=pc_web&xsec_token=ABbvVTdq8_FiBLYhxv1vE1Vv3zOF90wKn0RittKCjAapA=&xsec_source=pc_share" src="assets/time-workflow.mp4" muted loop playsinline></video>
+                  <div class="project-video placeholder-video" data-video="ceci-account" data-link="https://www.xiaohongshu.com/user/profile/5db38bb500000000010081aa">
                     <div class="showcase-board account-board">
                       <div class="account-card account-card-image">
                         <img src="assets/bubu-account-post.png" alt="布布一二妙妙屋代表性帖子" />
                         <div class="account-overlay">
                           <strong>布布一二妙妙屋</strong>
                           <p>用更强传播感的内容完成冷启动和增长验证。</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="project-video placeholder-video" data-video="bubu-account" data-link="https://xhslink.com/m/12OdVVkTDhW">
+                    <div class="showcase-board account-board">
+                      <div class="account-card account-card-image">
+                        <img src="assets/ceci-account-post.png" alt="Ceci（AI版）代表性帖子" />
+                        <div class="account-overlay">
+                          <strong>Ceci（AI版）</strong>
+                          <p>把转 AI 过程变成可被看见、可被共鸣的内容叙事。</p>
                         </div>
                       </div>
                     </div>
@@ -268,9 +294,24 @@
               <article class="timeline-item">
                 <span class="timeline-dot"></span>
                 <div>
+                  <p class="timeline-meta">2021.10 - 2022.03</p>
+                  <h3>北京字节跳动科技有限公司 · 抖音电商规则运营</h3>
+                  <ul class="timeline-points">
+                    <li>数据分析：熟练运用 Python 及 Excel 等软件进行规则整理、审核及分析，提高全组流程效率 30%。</li>
+                    <li>规则制定：负责制定并管理累计 100 余条规则，保障平台运营规范性和用户体验提升；参与双十一、双十二等 3 场大促活动规则制定。</li>
+                    <li>项目管理：参与商家罚单清晰度调研专项，收集并分析 200 多份用户反馈，协助完成营销规则重构及规则体系搭建；通过用户调研和反馈整合，优化规则体系，用户满意度提升 20%。</li>
+                  </ul>
+                </div>
+              </article>
+              <article class="timeline-item">
+                <span class="timeline-dot"></span>
+                <div>
                   <p class="timeline-meta">2023.08 - 2023.12</p>
                   <h3>武汉铸山煮海科技公司 · 数字营销</h3>
-                  <p>独立搭建 6 个海外独立站，负责板块设计与英文内容配置，推动网站月均访问量增长 80%；同时运营 Facebook、TikTok 等海外社媒，累计增粉超 500。</p>
+                  <ul class="timeline-points">
+                    <li>海外独立站构建：运用 WordPress 等软件自主搭建 6 个海外独立站，设计板块并配置英文文字视频，网站月均访问量增长 80%。</li>
+                    <li>内容营销：运营 Facebook、TikTok 等海外社交媒体，累计增粉量超过 500 人。</li>
+                  </ul>
                 </div>
               </article>
               <article class="timeline-item">
@@ -278,15 +319,10 @@
                 <div>
                   <p class="timeline-meta">2022.06 - 2023.08</p>
                   <h3>武汉黑镜计划网络科技有限公司 · 项目支持 + 活动领队</h3>
-                  <p>累计撰写 30+ 篇公众号推文，推动关注人数增长 25%、互动率提升 15%；负责 10+ 场活动的策划、执行与体验优化，活动满意度达 95%+。</p>
-                </div>
-              </article>
-              <article class="timeline-item">
-                <span class="timeline-dot"></span>
-                <div>
-                  <p class="timeline-meta">2021.10 - 2022.03</p>
-                  <h3>北京字节跳动科技有限公司 · 抖音电商规则运营</h3>
-                  <p>审核与分析规则数据库，提升全组流程效率 30%；参与 100+ 条规则管理与双十一、双十二等大促规则制定，整合 200+ 用户反馈后满意度提升 20%。</p>
+                  <ul class="timeline-points">
+                    <li>新媒体运营：负责社群及公众号日常运营，累计撰写 30+ 篇公众号推文，内容覆盖用户需求分析、活动宣传和用户反馈；通过精准用户分析和内容策划，公众号关注人数增长 25%，用户互动率提升 15%。</li>
+                    <li>活动领队：负责 10+ 场活动的策划、执行和体验优化，通过用户调研和反馈收集将活动满意度稳定在 95% 以上。</li>
+                  </ul>
                 </div>
               </article>
               <article class="timeline-item">
@@ -294,32 +330,13 @@
                 <div>
                   <p class="timeline-meta">2020.03 - 2021.06</p>
                   <h3>国际志愿组织 - 海南公益研究院 · 项目助理</h3>
-                  <p>搜集国内外公益数据并分析，制作知识手册，组织 5 场线上宣讲，担任宣讲口译。</p>
+                  <ul class="timeline-points">
+                    <li>数据搜集：根据任务要求搜集国内外相关数据并进行分析，覆盖国内外公益视频、文章以及学术论文等内容。</li>
+                    <li>活动策划：制作知识手册并组织国内外知名公益人士线上宣讲 5 场，担任宣讲口译员。</li>
+                  </ul>
                 </div>
               </article>
-
-              <div class="experience-subsection">
-                <h3>学生工作经历</h3>
-                <ul>
-                  <li>华中科技大学外国语学院研究生会 主席</li>
-                  <li>华中科技大学校研究生会实践部 部员</li>
-                  <li>华中科技大学第六期研究生青马班 学习组组长</li>
-                  <li>中国地质大学（武汉）校级志愿服务社团 社长</li>
-                  <li>中国地质大学（武汉）双学位实验班 班长</li>
-                </ul>
-              </div>
-
-              <div class="experience-subsection">
-                <h3>获奖情况</h3>
-                <ul>
-                  <li>第十七届“挑战杯”全国大学生课外学术科技作品竞赛 国家级一等奖</li>
-                  <li>第五届中国青年志愿服务项目大赛 国家级二等奖</li>
-                  <li>第六届“互联网+”中国大学生创新创业大赛 湖北省三等奖</li>
-                  <li>第五届普译奖全国大学生翻译大赛 国家级二等奖</li>
-                </ul>
-              </div>
             </div>
-
             <aside class="skills-panel">
               <div class="radar-shell">
                 <div class="radar-grid"></div>
@@ -338,18 +355,6 @@
             </aside>
           </div>
           <div class="section-close">}</div>
-        </section>
-
-        <section class="panel quote-panel" id="quote">
-          <p data-reveal>
-            <span>TALK</span>
-            <strong>IS</strong>
-            <span>CHEAP.</span>
-            <span>SHOW</span>
-            <strong>ME THE</strong>
-            <span>CODE</span>
-          </p>
-          <small data-reveal>- Linus Torvalds</small>
         </section>
 
         <section class="panel content-panel contact-panel" id="contact">
@@ -400,6 +405,7 @@
             </article>
           </div>
 
+          <div class="contact-lower-row">
           <div class="mini-terminal" data-reveal>
             <div class="terminal-header">
               <span></span>
@@ -407,7 +413,7 @@
               <span></span>
             </div>
             <div class="terminal-body">
-              <p class="terminal-line">ceci@portfolio:~$ <span id="terminal-output">Try <code>ceci.play_podcast()</code> or <code>ceci.show_medals()</code></span></p>
+              <p class="terminal-line">ceci@portfolio:~$ <span id="terminal-output">Try <code>ceci.play_podcast()</code>, <code>ceci.show_medals()</code> or <code>ceci.open_manual()</code></span></p>
               <label class="terminal-input-row" for="terminal-input">
                 <span>></span>
                 <input id="terminal-input" type="text" autocomplete="off" spellcheck="false" />
@@ -426,11 +432,69 @@
 
           <div class="contact-listing" data-reveal>
             <p class="contact-title">如果你在寻找一个有表达力、有产品感、能快速进入 AI 场景并把事情做出来的人，我们可以聊聊。</p>
-            <p>Email : <a href="mailto:caiqi317@foxmail.com">caiqi317@foxmail.com</a></p>
-            <p>Phone : <a href="tel:18307926834">18307926834</a></p>
-            <p>GitHub : <a href="https://github.com/ceci317" target="_blank" rel="noreferrer">github.com/ceci317</a></p>
-            <p>Xiaohongshu : <a href="https://www.xiaohongshu.com/user/profile/5db38bb500000000010081aa" target="_blank" rel="noreferrer">Ceci（AI版）</a></p>
-            <p>Resume : <a href="assets/ceci-resume.pdf" target="_blank" rel="noreferrer">Open PDF</a></p>
+            <div class="contact-icon-grid">
+              <a class="contact-icon-link" href="mailto:caiqi317@foxmail.com" aria-label="Email" data-tooltip="Email">
+                <span class="contact-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" role="presentation">
+                    <path d="M3 6.75h18v10.5H3z" fill="none" stroke="currentColor" stroke-width="1.7"/>
+                    <path d="m4.5 8 7.5 6 7.5-6" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </span>
+              </a>
+              <button class="contact-icon-link" type="button" aria-label="WeChat and Phone" data-tooltip="WeChat / Phone" id="contact-card-trigger">
+                <span class="contact-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" role="presentation">
+                    <path d="M8.1 8.5c0-2.3 2.2-4.1 5-4.1s5 1.8 5 4.1-2.2 4.1-5 4.1c-.5 0-.9-.1-1.4-.2l-2.4 1 .8-1.9c-1.2-.7-1.9-1.8-1.9-3Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+                    <path d="M5.1 10.2c-1.9.5-3.1 1.9-3.1 3.6 0 1.1.5 2.1 1.5 2.9l.6 1.7 1.9-.9c.4.1.8.1 1.2.1 2.6 0 4.8-1.6 5.1-3.8" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+                    <circle cx="11.3" cy="8.6" r=".8" fill="currentColor"/>
+                    <circle cx="14.8" cy="8.6" r=".8" fill="currentColor"/>
+                    <circle cx="6.9" cy="13.7" r=".75" fill="currentColor"/>
+                    <circle cx="10" cy="13.7" r=".75" fill="currentColor"/>
+                  </svg>
+                </span>
+              </button>
+              <a class="contact-icon-link" href="https://github.com/ceci317" target="_blank" rel="noreferrer" aria-label="GitHub" data-tooltip="GitHub">
+                <span class="contact-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" role="presentation">
+                    <path d="M12 4.3c-4.2 0-7.6 3.3-7.6 7.4 0 3.2 2 5.9 4.9 6.9.4.1.5-.1.5-.4v-1.5c-2 .4-2.5-.8-2.5-.8-.3-.8-.8-1.1-.8-1.1-.7-.5.1-.5.1-.5.8.1 1.2.8 1.2.8.7 1.2 1.8.8 2.2.6.1-.5.3-.8.5-1-1.6-.2-3.3-.8-3.3-3.4 0-.7.3-1.4.7-1.9-.1-.2-.3-.9.1-1.8 0 0 .6-.2 2 .7.6-.2 1.2-.3 1.9-.3.6 0 1.3.1 1.9.3 1.3-.9 2-.7 2-.7.4.9.2 1.6.1 1.8.5.5.7 1.2.7 1.9 0 2.6-1.6 3.2-3.3 3.4.3.2.5.7.5 1.3v2c0 .3.2.5.5.4 2.9-1 4.9-3.7 4.9-6.9 0-4.1-3.4-7.4-7.6-7.4Z" fill="currentColor"/>
+                  </svg>
+                </span>
+              </a>
+              <a class="contact-icon-link contact-icon-link-xhs" href="https://www.xiaohongshu.com/user/profile/5db38bb500000000010081aa" target="_blank" rel="noreferrer" aria-label="Xiaohongshu" data-tooltip="Xiaohongshu">
+                <span class="contact-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" role="presentation">
+                    <rect x="3" y="4" width="18" height="16" rx="5.2" fill="#ff355c"/>
+                    <text x="12" y="14.1" text-anchor="middle" font-size="5.2" font-weight="700" fill="#ffffff" font-family="PingFang SC, Microsoft YaHei, sans-serif">小红书</text>
+                  </svg>
+                </span>
+              </a>
+              <a class="contact-icon-link" href="https://my.feishu.cn/wiki/IKRWwpzm4isdi6kFs27cIYvLnqd" target="_blank" rel="noreferrer" aria-label="Manual" data-tooltip="Manual">
+                <span class="contact-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" role="presentation">
+                    <path d="M7 4.5h9.5a2 2 0 0 1 2 2V19H9a2 2 0 0 0-2 2Z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/>
+                    <path d="M7 4.5v16.8M10 8h5.5M10 11.5h5.5M10 15h4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+                  </svg>
+                </span>
+              </a>
+              <a class="contact-icon-link" href="assets/ceci-resume.pdf" target="_blank" rel="noreferrer" aria-label="Resume PDF" data-tooltip="Resume">
+                <span class="contact-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" role="presentation">
+                    <path d="M7 3.8h7l4 4V20.2H7z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/>
+                    <path d="M14 3.8v4h4M10 12h4M10 15.5h4M10 19h3" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+                  </svg>
+                </span>
+              </a>
+            </div>
+          </div>
+          <div class="contact-card-modal" id="contact-card-modal" hidden>
+            <div class="contact-card-sheet">
+              <button class="player-close contact-card-close" type="button" aria-label="关闭联系方式">×</button>
+              <p class="contact-card-title">微信 / 电话</p>
+              <img class="contact-card-qr" src="assets/wechat-qr.jpg" alt="Ceci 的微信二维码" />
+              <p class="contact-card-copy">微信号：<strong>C1203918771</strong></p>
+              <p class="contact-card-copy">手机号：<a href="tel:18307926834">18307926834</a></p>
+            </div>
+          </div>
           </div>
           <div class="section-close">}</div>
         </section>

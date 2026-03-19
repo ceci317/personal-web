@@ -15,6 +15,11 @@ const terminalOutput = document.querySelector("#terminal-output");
 const podcastPlayer = document.querySelector("#podcast-player");
 const playerClose = document.querySelector(".player-close");
 const medalRain = document.querySelector("#medal-rain");
+const contactCardTrigger = document.querySelector("#contact-card-trigger");
+const contactCardModal = document.querySelector("#contact-card-modal");
+const contactCardClose = document.querySelector(".contact-card-close");
+const quotePanel = document.querySelector("#quote");
+const quoteLines = document.querySelectorAll(".quote-line[data-quote-text]");
 const heroRoleChunks = [
   "> AI PRODUCT BUILDER",
   "> HACKATHON WINNER",
@@ -83,8 +88,27 @@ if ("IntersectionObserver" in window) {
   );
 
   projectTexts.forEach((item) => projectObserver.observe(item));
+
+  if (quotePanel && quoteLines.length > 0) {
+    let hasAnimatedQuote = false;
+    const quoteObserver = new IntersectionObserver(
+      (entries, observer) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting || hasAnimatedQuote) return;
+          hasAnimatedQuote = true;
+          runQuoteTypewriter();
+
+          observer.unobserve(entry.target);
+        });
+      },
+      { threshold: 0.45 }
+    );
+
+    quoteObserver.observe(quotePanel);
+  }
 } else {
   revealTargets.forEach((target) => target.classList.add("is-visible"));
+  renderQuoteLinesImmediately();
 }
 
 function activateProject(projectId) {
@@ -104,6 +128,109 @@ function activateProject(projectId) {
       video.pause();
     }
   });
+}
+
+projectVideos.forEach((media) => {
+  media.addEventListener("click", () => {
+    if (!media.classList.contains("is-visible")) return;
+
+    const targetLink = media.dataset.link;
+    if (!targetLink) return;
+
+    window.open(targetLink, "_blank", "noopener,noreferrer");
+  });
+});
+
+function getStrongIndexes(pattern = "") {
+  const indexes = new Set();
+  pattern
+    .split(",")
+    .map((segment) => segment.trim())
+    .filter(Boolean)
+    .forEach((segment) => {
+      const [startToken, endToken] = segment.split("-");
+      const start = Number.parseInt(startToken, 10);
+      const end = Number.parseInt(endToken ?? startToken, 10);
+
+      if (!Number.isFinite(start) || !Number.isFinite(end)) return;
+
+      for (let index = start; index <= end; index += 1) {
+        indexes.add(index);
+      }
+    });
+
+  return indexes;
+}
+
+function appendQuoteCharacter(line, char, index, strongIndexes) {
+  const span = document.createElement("span");
+  span.className = "quote-char";
+
+  if (char === " ") {
+    span.classList.add("quote-char-space");
+    span.innerHTML = "&nbsp;";
+  } else {
+    span.textContent = char;
+  }
+
+  if (strongIndexes.has(index)) {
+    span.classList.add("quote-char-strong");
+  }
+
+  line.appendChild(span);
+}
+
+function renderQuoteLinesImmediately() {
+  quoteLines.forEach((line) => {
+    const text = line.dataset.quoteText ?? "";
+    const strongIndexes = getStrongIndexes(line.dataset.quoteStrong);
+
+    line.textContent = "";
+    [...text].forEach((char, index) => {
+      appendQuoteCharacter(line, char, index, strongIndexes);
+    });
+  });
+}
+
+function runQuoteTypewriter() {
+  quoteLines.forEach((line) => {
+    line.textContent = "";
+  });
+
+  const lineConfigs = [...quoteLines].map((line) => ({
+    line,
+    text: [...(line.dataset.quoteText ?? "")],
+    strongIndexes: getStrongIndexes(line.dataset.quoteStrong),
+  }));
+
+  let lineIndex = 0;
+  let charIndex = 0;
+
+  const typeNextChar = () => {
+    const currentLine = lineConfigs[lineIndex];
+    if (!currentLine) return;
+
+    if (charIndex < currentLine.text.length) {
+      appendQuoteCharacter(
+        currentLine.line,
+        currentLine.text[charIndex],
+        charIndex,
+        currentLine.strongIndexes
+      );
+      charIndex += 1;
+      window.setTimeout(typeNextChar, 42);
+      return;
+    }
+
+    lineIndex += 1;
+    charIndex = 0;
+
+    if (lineIndex < lineConfigs.length) {
+      window.setTimeout(typeNextChar, 180);
+    }
+  };
+
+  typeNextChar();
 }
 
 if (menuButton && siteNav) {
@@ -315,6 +442,16 @@ function closePodcastPlayer() {
   podcastPlayer.hidden = true;
 }
 
+function openContactCard() {
+  if (!contactCardModal) return;
+  contactCardModal.hidden = false;
+}
+
+function closeContactCard() {
+  if (!contactCardModal) return;
+  contactCardModal.hidden = true;
+}
+
 function showMedals() {
   if (!medalRain) return;
 
@@ -335,6 +472,10 @@ function showMedals() {
   }
 }
 
+function openManual() {
+  window.open("https://my.feishu.cn/wiki/IKRWwpzm4isdi6kFs27cIYvLnqd", "_blank", "noopener,noreferrer");
+}
+
 if (terminalInput && terminalOutput) {
   terminalInput.addEventListener("keydown", (event) => {
     if (event.key !== "Enter") return;
@@ -347,6 +488,9 @@ if (terminalInput && terminalOutput) {
     } else if (command === "ceci.show_medals()") {
       terminalOutput.innerHTML = "Summoning medals and shuttlecocks...";
       showMedals();
+    } else if (command === "ceci.open_manual()") {
+      terminalOutput.innerHTML = "Opening personal wiki...";
+      openManual();
     } else {
       terminalOutput.innerHTML = `Command not found: <code>${command || "empty"}</code>`;
     }
@@ -362,9 +506,18 @@ podcastPlayer?.addEventListener("click", (event) => {
   }
 });
 
+contactCardTrigger?.addEventListener("click", openContactCard);
+contactCardClose?.addEventListener("click", closeContactCard);
+contactCardModal?.addEventListener("click", (event) => {
+  if (event.target === contactCardModal) {
+    closeContactCard();
+  }
+});
+
 window.addEventListener("keydown", (event) => {
   if (event.key === "Escape") {
     closePodcastPlayer();
+    closeContactCard();
   }
 });
 
