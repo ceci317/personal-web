@@ -18,7 +18,7 @@
 
 ## Screenshot
 
-<img src="assets/portfolio-cover-real.jpg" alt="Ceci 个人主页截图" width="720"/>
+<img src="assets/site-preview.gif" alt="Ceci 个人主页动图预览" width="720"/>
 
 ## Tech Stack
 
