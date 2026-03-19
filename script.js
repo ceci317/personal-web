@@ -28,12 +28,14 @@ const heroRoleChunks = [
 
 function syncHomePageState() {
   const hash = window.location.hash.trim();
-  const isHomePage =
+  const hashPointsHome =
     hash === "" ||
     hash === "#" ||
     hash === "#/" ||
     hash === "#home" ||
     hash === "#/home";
+  const nearHeroTop = window.scrollY < window.innerHeight * 0.45;
+  const isHomePage = hashPointsHome || nearHeroTop;
 
   document.body.classList.toggle("is-home-page", isHomePage);
 }
@@ -43,6 +45,7 @@ syncHomePageState();
 window.addEventListener("hashchange", syncHomePageState);
 window.addEventListener("routechange", syncHomePageState);
 window.addEventListener("aframe:routechange", syncHomePageState);
+window.addEventListener("scroll", syncHomePageState, { passive: true });
 
 if ("IntersectionObserver" in window) {
   const revealObserver = new IntersectionObserver(
