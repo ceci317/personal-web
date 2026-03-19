@@ -27,17 +27,7 @@ const heroRoleChunks = [
 ];
 
 function syncHomePageState() {
-  const hash = window.location.hash.trim();
-  const hashPointsHome =
-    hash === "" ||
-    hash === "#" ||
-    hash === "#/" ||
-    hash === "#home" ||
-    hash === "#/home";
-  const nearHeroTop = window.scrollY < window.innerHeight * 0.45;
-  const isHomePage = hashPointsHome || nearHeroTop;
-
-  document.body.classList.toggle("is-home-page", isHomePage);
+  document.body.classList.add("is-home-page");
 }
 
 syncHomePageState();
