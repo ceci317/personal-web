@@ -1202,8 +1202,10 @@ main {
 }
 
 .account-overlay strong {
-  color: #f6ffda;
-  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.42);
+  color: #d8ff72;
+  text-shadow:
+    0 0 10px rgba(196, 255, 69, 0.22),
+    0 2px 12px rgba(0, 0, 0, 0.48);
 }
 
 .account-overlay p {
