@@ -1201,14 +1201,14 @@ main {
   box-shadow: 0 14px 36px rgba(0, 0, 0, 0.3);
 }
 
-.account-overlay strong {
+.account-card .account-overlay strong {
   color: #d8ff72;
   text-shadow:
     0 0 10px rgba(196, 255, 69, 0.22),
     0 2px 12px rgba(0, 0, 0, 0.48);
 }
 
-.account-overlay p {
+.account-card .account-overlay p {
   margin: 8px 0 0;
   color: rgba(246, 255, 218, 0.96);
   text-shadow: 0 1px 8px rgba(0, 0, 0, 0.34);
