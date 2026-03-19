@@ -1195,17 +1195,21 @@ main {
   bottom: 18px;
   padding: 16px 18px;
   border-radius: 18px;
-  background: rgba(0, 0, 0, 0.58);
-  backdrop-filter: blur(10px);
+  background: rgba(8, 10, 8, 0.8);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.3);
 }
 
 .account-overlay strong {
-  color: #fff;
+  color: #f6ffda;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.42);
 }
 
 .account-overlay p {
   margin: 8px 0 0;
-  color: rgba(255, 255, 255, 0.84);
+  color: rgba(246, 255, 218, 0.96);
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.34);
 }
 
 .account-card strong {
