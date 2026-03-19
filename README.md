@@ -16,6 +16,10 @@
 - 联系方式区支持图标化入口、微信二维码弹层与彩蛋交互
 - 包含多页扩展内容，可进一步沉淀为个人品牌站点矩阵
 
+## Screenshot
+
+<img src="assets/portfolio-cover-real.jpg" alt="Ceci 个人主页截图" width="720"/>
+
 ## Tech Stack
 
 - HTML5
