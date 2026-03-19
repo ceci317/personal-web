@@ -988,6 +988,10 @@ main {
   border-radius: 10px;
   overflow: hidden;
   background: #080808;
+  background-image: url("assets/portfolio-cover-real.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .screen-stage::after {
