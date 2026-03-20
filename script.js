@@ -115,6 +115,11 @@ function activateProject(projectId) {
 
     if (!(video instanceof HTMLVideoElement)) return;
     if (isTarget) {
+      video.muted = true;
+      video.playsInline = true;
+      if (video.readyState < 2) {
+        video.load();
+      }
       video.currentTime = 0;
       video.play().catch(() => {});
     } else {
@@ -122,6 +127,15 @@ function activateProject(projectId) {
     }
   });
 }
+
+projectVideos.forEach((video) => {
+  if (!(video instanceof HTMLVideoElement)) return;
+
+  video.addEventListener("loadeddata", () => {
+    if (!video.classList.contains("is-visible")) return;
+    video.play().catch(() => {});
+  });
+});
 
 projectVideos.forEach((media) => {
   media.addEventListener("click", () => {
