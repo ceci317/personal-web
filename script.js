@@ -19,7 +19,8 @@ const contactCardTrigger = document.querySelector("#contact-card-trigger");
 const contactCardModal = document.querySelector("#contact-card-modal");
 const contactCardClose = document.querySelector(".contact-card-close");
 const quotePanel = document.querySelector("#quote");
-const quoteLines = document.querySelectorAll(".quote-line[data-quote-text]");
+const quoteLines = document.querySelectorAll(".quote-line[data-quote-initial-text]");
+const quoteCodeGlyphs = ['{', '}', '<', '>', '/', '\\', '#', '0', '1', '_'];
 const heroRoleChunks = [
   "> AI PRODUCT BUILDER",
   "> HACKATHON WINNER",
@@ -172,6 +173,7 @@ function getStrongIndexes(pattern = "") {
 function appendQuoteCharacter(line, char, index, strongIndexes) {
   const span = document.createElement("span");
   span.className = "quote-char";
+  span.dataset.quoteIndex = String(index);
 
   if (char === " ") {
     span.classList.add("quote-char-space");
@@ -187,27 +189,115 @@ function appendQuoteCharacter(line, char, index, strongIndexes) {
   line.appendChild(span);
 }
 
-function renderQuoteLinesImmediately() {
-  quoteLines.forEach((line) => {
-    const text = line.dataset.quoteText ?? "";
-    const strongIndexes = getStrongIndexes(line.dataset.quoteStrong);
-
-    line.textContent = "";
-    [...text].forEach((char, index) => {
-      appendQuoteCharacter(line, char, index, strongIndexes);
-    });
+function renderQuoteLine(line, text, strongIndexes) {
+  line.textContent = "";
+  [...text].forEach((char, index) => {
+    appendQuoteCharacter(line, char, index, strongIndexes);
   });
 }
 
-function runQuoteTypewriter() {
+function wait(ms) {
+  return new Promise((resolve) => window.setTimeout(resolve, ms));
+}
+
+function getQuoteWordRange(text, word, matchMode = "first") {
+  if (!text || !word) return null;
+
+  const startIndex =
+    matchMode === "last" ? text.lastIndexOf(word) : text.indexOf(word);
+
+  if (startIndex < 0) return null;
+
+  return {
+    start: startIndex,
+    end: startIndex + word.length,
+  };
+}
+
+async function morphQuoteWord(lineConfig) {
+  const {
+    line,
+    initialText,
+    finalStrongIndexes,
+    swapFrom,
+    swapTo,
+    swapMatch,
+  } = lineConfig;
+
+  const range = getQuoteWordRange(initialText, swapFrom, swapMatch);
+  if (!range) return;
+
+  const chars = [...line.querySelectorAll(".quote-char")];
+  const targetChars = chars.slice(range.start, range.end);
+
+  for (let index = targetChars.length - 1; index >= 0; index -= 1) {
+    targetChars[index].classList.add("quote-char-erasing");
+    await wait(55);
+  }
+
+  await wait(80);
+
+  targetChars.forEach((char) => {
+    char.classList.remove("quote-char-strong");
+    char.classList.remove("quote-char-erasing");
+    char.classList.add("quote-char-code");
+  });
+
+  for (let step = 0; step < 5; step += 1) {
+    targetChars.forEach((char) => {
+      char.textContent = quoteCodeGlyphs[Math.floor(Math.random() * quoteCodeGlyphs.length)];
+    });
+    await wait(56);
+  }
+
+  [...swapTo].forEach((nextChar, offset) => {
+    const char = targetChars[offset];
+    if (!char) return;
+
+    char.textContent = nextChar;
+    char.classList.remove("quote-char-code");
+    char.classList.add("quote-char-swap-in");
+
+    if (finalStrongIndexes.has(range.start + offset)) {
+      char.classList.add("quote-char-strong");
+    }
+  });
+
+  await wait(280);
+
+  targetChars.forEach((char) => {
+    char.classList.remove("quote-char-swap-in");
+  });
+}
+
+function renderQuoteLinesImmediately() {
+  quoteLines.forEach((line) => {
+    const text = line.dataset.quoteFinalText ?? line.dataset.quoteInitialText ?? "";
+    const strongIndexes = getStrongIndexes(
+      line.dataset.quoteStrongFinal ?? line.dataset.quoteStrong
+    );
+
+    renderQuoteLine(line, text, strongIndexes);
+  });
+}
+
+async function runQuoteTypewriter() {
   quoteLines.forEach((line) => {
     line.textContent = "";
   });
 
   const lineConfigs = [...quoteLines].map((line) => ({
     line,
-    text: [...(line.dataset.quoteText ?? "")],
-    strongIndexes: getStrongIndexes(line.dataset.quoteStrong),
+    initialText: line.dataset.quoteInitialText ?? "",
+    finalText: line.dataset.quoteFinalText ?? line.dataset.quoteInitialText ?? "",
+    initialChars: [...(line.dataset.quoteInitialText ?? "")],
+    initialStrongIndexes: getStrongIndexes(line.dataset.quoteStrong),
+    finalStrongIndexes: getStrongIndexes(
+      line.dataset.quoteStrongFinal ?? line.dataset.quoteStrong
+    ),
+    swapFrom: line.dataset.quoteSwapFrom ?? "",
+    swapTo: line.dataset.quoteSwapTo ?? "",
+    swapMatch: line.dataset.quoteSwapMatch ?? "first",
   }));
 
   let lineIndex = 0;
@@ -217,12 +307,12 @@ function runQuoteTypewriter() {
     const currentLine = lineConfigs[lineIndex];
     if (!currentLine) return;
 
-    if (charIndex < currentLine.text.length) {
+    if (charIndex < currentLine.initialChars.length) {
       appendQuoteCharacter(
         currentLine.line,
-        currentLine.text[charIndex],
+        currentLine.initialChars[charIndex],
         charIndex,
-        currentLine.strongIndexes
+        currentLine.initialStrongIndexes
       );
       charIndex += 1;
       window.setTimeout(typeNextChar, 42);
@@ -234,7 +324,15 @@ function runQuoteTypewriter() {
 
     if (lineIndex < lineConfigs.length) {
       window.setTimeout(typeNextChar, 180);
+      return;
     }
+
+    window.setTimeout(async () => {
+      for (const lineConfig of lineConfigs) {
+        await morphQuoteWord(lineConfig);
+        await wait(140);
+      }
+    }, 520);
   };
 
   typeNextChar();
