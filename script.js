@@ -23,8 +23,8 @@ const quoteLines = document.querySelectorAll(".quote-line[data-quote-initial-tex
 const quoteCodeGlyphs = ['{', '}', '<', '>', '/', '\\', '#', '0', '1', '_'];
 const heroRoleChunks = [
   "> AI PRODUCT BUILDER",
-  "> HACKATHON WINNER",
-  "> USER-CENTRIC OPERATOR",
+  "> AI GROWTH OPERATOR",
+  "> AI COMMERCIALIZATION",
 ];
 
 function syncHomePageState() {
