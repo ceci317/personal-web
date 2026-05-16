@@ -1526,6 +1526,12 @@ main {
   perspective: 1200px;
 }
 
+.polaroid-card-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
 .polaroid-inner {
   position: relative;
   width: 100%;
